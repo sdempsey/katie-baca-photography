@@ -1,0 +1,91 @@
+@import "susy";
+@import "fonts";
+@import "custom";
+
+// /*  ==========================================================================
+//      CUSTOM VARIABLES
+//     ==========================================================================  */
+
+$image-path: 'images/';
+$icon-path: 'images/icons/';
+
+// /*  ==========================================================================
+//      BREAKPOINTS
+//     ==========================================================================  */
+
+
+$susy: (
+    container: 1200px,
+    columns: 12,
+    gutters: .25,
+    math: fluid,
+    clearfix: true,
+    global-box-sizing: border-box
+);
+
+@include layout($susy);
+@include border-box-sizing;
+
+.container {
+    @include container;
+    position: relative;
+}
+
+$smallest: pxtoem(480px);
+$small: pxtoem(600px);
+$medium: pxtoem(760px);
+$large: pxtoem(1000px);
+$x-large: pxtoem(1250px);
+$xx-large: pxtoem(1400px);
+
+$breakpoints: (
+	smallest: $smallest,
+	small: $small,
+	medium: $medium,
+	large: $large,
+	x-large: $x-large,
+	xx-large: $x-large
+);
+
+@mixin respond-to($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media (min-width: #{map-get($breakpoints, $breakpoint)}) {
+            @content;
+        }
+    }
+    @else {
+        @warn "That variable doesn't exist in '#{$breakpoint}' dummy"
+        + "Add it to '$breakpoints' map, or GTFO.";
+    }
+}
+
+// /*  ==========================================================================
+//      Z-INDEX MAP
+//     ==========================================================================  */
+
+$z-index: (
+
+);
+
+// /*  ==========================================================================
+//      COLOR DEFINITIONS AND MAP
+//     ==========================================================================  */
+
+$black: #000;
+$white: #fff;
+
+// Example: body { color: map-get($colors, body-copy); }
+$colors: (
+    body-bg: $white,
+    copy-color: $black
+);
+
+@function color($key) {
+	@if map-has-key($colors, $key) {
+		@return map-get($colors, $key);
+	}
+
+	@warn "Unkown '#{$key}' in $colors.";
+	@return null;
+}
+

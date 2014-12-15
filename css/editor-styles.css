@@ -1,0 +1,52 @@
+/*  ==========================================================================
+     FONTS
+
+     This makes our site's fonts available to the backend editor so we can
+     better reflect how the site's text looks. You should add these to the
+     font select menu in the WYSIWYG (via functions.php) so they are available.
+    ==========================================================================  */
+/* ==========================================================================
+    FONTS
+   ========================================================================== */
+@font-face {
+  font-family: 'American Typwriter';
+  src: url("fonts/american-typewriter-webfont.eot");
+  src: url("fonts/american-typewriter-webfont.eot?#iefix") format("embedded-opentype"), url("fonts/american-typewriter-webfont.woff2") format("woff2"), url("fonts/american-typewriter-webfont.woff") format("woff"), url("fonts/american-typewriter-webfont.ttf") format("truetype"), url("fonts/american-typewriter-webfont.svg#american_typewriterregular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/*  ==========================================================================
+     EDITOR STYLES
+    ==========================================================================  */
+body {
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-size: .875em;
+  line-height: 1.5;
+}
+
+a {
+  color: #0174a2;
+}
+
+blockquote {
+  font-style: italic;
+}
+
+.alignnone {
+  margin: 1em 1em 1em 0;
+}
+
+.alignright {
+  float: right;
+  margin: 0 0 1em 1em;
+}
+
+.alignleft {
+  float: left;
+  margin: 0 1em 1em 0;
+}
+
+.aligncenter {
+  display: block;
+  margin: 1em auto;
+}

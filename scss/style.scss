@@ -1,0 +1,508 @@
+/*
+    Theme Name:     Katie Baca Photography
+    Theme URI:      http://katiebaca.com
+    Description:    Katie's Gallery Theme
+    Version:        1.0
+    Author:         Sean
+    Author URI:     http://codepen.io/seanseansean
+*/
+
+@import "base";
+
+/* --------------------------------------------------------------------------
+
+    TABLE OF CONTENTS
+
+    1. Reset & Global
+    2. Layout
+    3. Header
+    4. Footer
+    5. Navigation
+        5.1. Main Navigation
+        5.2. Utility Navigation
+        5.3. Footer Navigation
+    6. WYSIWYG Core Styles
+    7. UI Elements
+    8. Global Blocks
+
+/*  ==========================================================================
+     1. RESET & GLOBAL
+    ==========================================================================  */
+
+@include global-reset;
+
+::-moz-selection {
+    color: $black;
+    background: $white;
+    text-shadow: none;
+}
+
+::selection {
+  color: $black;
+  background: $white;
+  text-shadow: none;
+}
+
+body {
+    position: relative;
+    background: color(body-bg);
+    color: color(copy-color);
+    font-family: 'American Typewriter', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    line-height: 1.25;
+}
+
+a {
+	color: map-get($colors, a-color);
+}
+.group {
+	@include clearfix;
+}
+
+.screen-reader-text {
+	@include screen-reader-text;
+}
+
+/*  ==========================================================================
+     2. LAYOUT
+    ==========================================================================  */
+
+.window {
+    position: relative;
+    height: 100vh;
+    transform-style: preserve-3d;
+    perspective: 1200px;
+
+    .animate {
+        transform-origin: 189.5px 0px;
+        animation: rotate 6s ease-out;
+    }
+    
+
+    .nope {
+        transform-origin: 0 0;
+        position: absolute;
+        top:-100vh;
+        left:50%;
+        transform: translate3d(-50%, -50%, 0);
+        text-align: center;
+    }
+
+    h1 {
+          font-size:90px;
+          margin-bottom:20px;
+    }
+
+    a {
+        display:block;
+        font-size:35px;
+        color: color(copy-color);
+        transition: 0.5s ease;
+        margin-top:40px;
+
+        &:hover {
+            color: darken($white, 20%);
+        }
+    }
+}
+
+@keyframes rotate {
+    20% {transform: rotate(45deg);}
+    40% {transform:rotate(-45deg);}
+    60% {transform: rotate(45deg);}
+    80% {transform:rotate(-45deg);}        
+    100% {transform: rotate(0deg);}
+}
+
+
+
+/*
+    ========================================
+        ::Gallery Page
+    ========================================
+*/
+
+h1 {
+    font-size: 24px;
+    line-height: 36px;
+    margin:15px 0;
+
+    @include respond-to(medium) {
+        font-size: 30px;
+        line-height:40px;
+        margin:25px 0;
+    }
+}
+
+.images {
+    border-bottom: 1px dashed color(copy-color);
+    margin-bottom: 15px;
+    padding-bottom: 15px; 
+
+    @include respond-to(medium) {
+        margin-bottom: 25px;
+        padding-bottom:25px;
+    }
+
+    & + & {
+        border-bottom: none;
+    }
+}
+
+.thumbs {
+    padding: 0 15px;
+
+    @include respond-to(medium) {
+        padding: 0 25px;
+    }
+
+
+    .gallery {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        transform-style: preserve-3d;
+        margin-bottom:10px;
+        perspective: 800px;
+
+        @include respond-to(medium) {
+            justify-content: center;
+        }
+
+        a {
+            width:45%;
+            margin-top:10px;
+            transition: all 0.5s ease-in-out;
+
+            @include respond-to(smallest) {
+                width:140px;
+            }
+
+            @include respond-to(medium) {
+                margin-right: 10px;
+            }
+
+            &:hover img {
+                transform: scale(1.1) rotate3d(0,0,1, 360deg);
+            }
+        }
+        
+        img {
+            max-width:100%;
+            display:block;
+            transform: scale(1) rotate3d(0,0,0,0);
+            transition: 0.5s ease;
+        }
+    }
+}
+
+
+
+
+/*  ==========================================================================
+     3. HEADER
+    ==========================================================================  */
+header {
+    padding: 15px;
+
+    @include respond-to(medium) {
+        padding: 25px 0;
+    }
+
+    .logo {
+        width:90%;
+        margin:0 auto;
+        transform: scale(1);
+        transition: width 0.6s ease;
+
+        @include respond-to(large) {
+            width:50%;
+        }
+        
+    }
+
+    .contact {
+
+        @include respond-to(smallest) {
+            @include span(last 4.5);   
+        } 
+
+        @include respond-to(small) {
+            position: absolute;
+            width: span(4);
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);            
+        }
+    }
+
+    ul {
+        width: 66%;
+        margin: 0 auto; 
+
+        @include respond-to(smallest) {
+            margin:0;
+            width:auto;
+        }
+    }
+}
+
+/*  ==========================================================================
+     4. FOOTER
+    ==========================================================================  */
+
+
+/*  ==========================================================================
+     5. NAVIGATION
+    ==========================================================================  */
+
+/*   5.1. Main Navigation
+    --------------------------------------------------------------------------  */
+
+/*   5.2. Utility Navigation
+    --------------------------------------------------------------------------  */
+
+/*   5.3. Footer Navigation
+    --------------------------------------------------------------------------  */
+
+
+/*  ==========================================================================
+     6. WYSIWYG Core Styles
+    ==========================================================================  */
+
+.entry {
+    h1 {
+        margin-top: 1.67em;
+        margin-bottom: .5em;
+        font-size: 2em;
+    }
+    h2 {
+        margin: 1.2em 0 .4em;
+        font-size: 1.5em;
+    }
+    h1 + h2 {
+        margin-top: -0.5em;
+    }
+    h3 {
+        margin: 1.8em 0 .4em;
+        font-size: 1.25em;
+    }
+    h2 + h3 {
+        margin-top: -0.4em;
+        margin-bottom: .2em;
+    }
+    h4 {
+        margin: 1.8em 0 .4em;
+        font-size: 1em;
+    }
+    h3 + h4 {
+        margin-top: -0.3em;
+    }
+    h5 {
+        margin: 1.8em 0 .4em;
+        font-size: 1em;
+    }
+    h4 + h5 {
+        margin-top: -0.3em;
+    }
+    h6 {
+        margin: 1.8em 0 .4em;
+        font-size: 1em;
+    }
+    h5 + h6 {
+        margin-top: -0.2em;
+    }
+    h1:first-child,
+    h2:first-child,
+    h3:first-child,
+    h4:first-child,
+    h5:first-child,
+    h6:first-child {
+        margin-top: 0;
+    }
+    p, pre {
+        margin: 1em 0 0;
+    }
+    p {
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+        &:first-child {
+            margin-top: 0;
+        }
+    }
+    blockquote {
+        margin: 1em 2.5em;
+        font-style: italic;
+        p {
+            &:before {
+                content: "\201C";
+                display: inline-block;
+                padding-right: .1em;
+            }
+            &:after {
+                content: "\201D";
+                display: inline-block;
+            }
+        }
+    }
+    hr {
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        clear: both;
+        height: 1px;
+        padding: 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+    code {
+        font-family: monospace;
+        font-size: 1em;
+    }
+    pre {
+        font-family: monospace;
+        font-size: 1em;
+        white-space: pre;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+    }
+    sub {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+    sup {
+        font-size: 75%;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+        top: -0.5em;
+    }
+    sub {
+        bottom: -0.25em;
+    }
+    ul, ol {
+        margin: 1em 0;
+        padding: 0 0 0 2.5em;
+    }
+    ul {
+        list-style-type: disc;
+        ul {
+            list-style-type: circle;
+            ul {
+                list-style-type: square;
+            }
+        }
+    }
+    ol {
+        list-style-type: decimal;
+    }
+    li {
+        font-size: 1em;
+    }
+    table {
+        margin: 0;
+        padding: 0;
+        th, td {
+            padding: .625em 1.25em;
+            border-bottom: 1px solid #ccc;
+            text-align: left;
+        }
+        th {
+            border-width: 2px;
+        }
+        tr {
+            &:last-child td {
+                border-bottom: none;
+            }
+            &:nth-child(even) {
+                background: #eee;
+            }
+        }
+    }
+    .alignnone {
+        margin: 1em 1em 1em 0;
+    }
+    .aligncenter {
+        display: block;
+        margin: .5em auto;
+    }
+    .alignright {
+        float: right;
+        margin: 0 0 1em 1em;
+    }
+    .alignleft {
+        float: left;
+        margin: 0 1em 1em 0;
+    }
+    .aligncenter {
+        display: block;
+        margin: 1em auto;
+    }
+    img {
+        max-width: 100%;
+        height: auto;
+        border: none;
+        &[class*="align"], &[class*="wp-image-"] {
+            max-width: 100%;
+            height: auto;
+            border: none;
+        }
+        &.alignright {
+            margin: 1em 0 1em 1em;
+        }
+        &.alignleft {
+            margin: 1em 1em 1em 0;
+        }
+        &.aligncenter {
+            display: block;
+            margin: 1em auto;
+        }
+    }
+    .wp-caption {
+        max-width: 96%;
+        margin-bottom: 1em;
+        margin-left: 0;
+        text-align: center;
+        img {
+            display: block;
+            margin: 0 auto;
+        }
+    }
+    .wp-caption-text {
+        position: relative;
+        font-size: .8em;
+    }
+    iframe {
+        max-width: 100%;
+    }
+}
+
+@include respond-to(smallest) {
+
+    .entry {
+        p, li {
+            font-size: .875em;
+        }
+    }
+}
+
+/*  ==========================================================================
+     7. UI ELEMENTS
+    ==========================================================================  */
+
+*:focus {
+    border:none;
+    outline:none;
+}
+
+/*  ==========================================================================
+     8. GLOBAL BLOCKS
+    ==========================================================================  */
+
+    @import 'magnific';
