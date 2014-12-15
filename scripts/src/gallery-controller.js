@@ -1,6 +1,6 @@
 galleryController = (function($) {
 	var win, doc, nope, nopeLink,
-	gallery;
+	gallery, galleryLink, image;
 
 	function onDocumentReady() {
 		win = $(window);
@@ -8,9 +8,24 @@ galleryController = (function($) {
 		nope = $('.nope');
 		nopeLink = $('.nope a');
 		gallery = $('.gallery');
+		galleryLink = $('.gallery a');
+		image = $('.gallery img');
 
 		nope.on('click', onNopeClick);
 		animateNope();
+
+		image.on('mouseenter', function() {
+			$(this).stop().velocity({
+				scale: [1.1, 1],
+				rotateZ: [360, 0]
+			}, 500, 'ease');			
+		});
+		galleryLink.on('mouseleave', function() {
+			image.stop().velocity({
+				scale: 1,
+				rotateZ: 0
+			}, 500, 'ease');			
+		});
 
 		initializeGallery();
 	}
@@ -48,6 +63,20 @@ galleryController = (function($) {
 				$(this).magnificPopup(options);
 			});			
 		}
+	}
+
+	function onMouseLeave() {
+		image.stop().velocity({
+			scale: 1,
+			rotate: 0
+		}, 600);
+	}
+
+	function onMouseEnter() {
+		image.stop().velocity({
+			scale: [1.1, 1],
+			rotate: [360, 0]
+		}, 600);
 	}
 
 	$(onDocumentReady);

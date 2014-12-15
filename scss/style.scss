@@ -182,17 +182,11 @@ h1 {
             @include respond-to(medium) {
                 margin-right: 10px;
             }
-
-            &:hover img {
-                transform: scale(1.1) rotate3d(0,0,1, 360deg);
-            }
         }
         
         img {
             max-width:100%;
             display:block;
-            transform: scale(1) rotate3d(0,0,0,0);
-            transition: 0.5s ease;
         }
     }
 }

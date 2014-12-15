@@ -1,4 +1,7 @@
 <?php
+    require_once locate_template('/functions/admin.php');
+    require_once locate_template('/functions/extras.php');
+    require_once locate_template('/functions/cleanup.php');
 
 /*  ==========================================================================
      SCRIPTS, STYLESHEETS, AND FAVICONS
@@ -15,7 +18,7 @@
         if (is_page_template('page-gallery.php')) {
             wp_enqueue_script( 'magnific-popup', get_template_directory_uri() . '/scripts/libraries/magnific-popup.min.js', null, '1.0.0', true );
         }        
-
+        
         wp_enqueue_script( 'global', get_template_directory_uri() . '/scripts/site/global.js', array('jquery'), '1.0', true );
         wp_enqueue_script( 'velocity', get_template_directory_uri() . '/scripts/libraries/velocity.min.js', null, '1.1.0', true );
         /**

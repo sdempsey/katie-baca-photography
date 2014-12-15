@@ -316,17 +316,9 @@ h1 {
     margin-right: 10px;
   }
 }
-.thumbs .gallery a:hover img {
-  -webkit-transform: scale(1.1) rotate3d(0, 0, 1, 360deg);
-          transform: scale(1.1) rotate3d(0, 0, 1, 360deg);
-}
 .thumbs .gallery img {
   max-width: 100%;
   display: block;
-  -webkit-transform: scale(1) rotate3d(0, 0, 0, 0);
-          transform: scale(1) rotate3d(0, 0, 0, 0);
-  -webkit-transition: 0.5s ease;
-          transition: 0.5s ease;
 }
 
 /*  ==========================================================================

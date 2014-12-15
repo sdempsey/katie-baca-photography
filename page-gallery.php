@@ -21,7 +21,7 @@
 							foreach($images as $image): 
 					?>
 							<a href="<?php echo $image['url']; ?>">
-								<img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" height="<?php echo $image['thumbnail-height']; ?>" width="<?php echo $image['thumbnail-width']; ?>">
+								<img src="<?php echo $image['sizes']['thumbnail']; ?>" alt="<?php echo $image['alt']; ?>" height="150" width="150">
 								
 							</a>
 						<?php endforeach; ?>
